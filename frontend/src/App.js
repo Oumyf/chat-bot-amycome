@@ -16,7 +16,6 @@ function App() {
 
   const handleSelectUser = (user) => {
     if (!currentUser) {
-      // Si aucun utilisateur n'est connecté, le définir comme utilisateur actuel
       setCurrentUser(user);
       Swal.fire({
         icon: 'success',
@@ -26,7 +25,6 @@ function App() {
         showConfirmButton: false
       });
     } else {
-      // Sinon, le sélectionner pour le chat
       setSelectedUser(user);
     }
   };

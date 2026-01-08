@@ -16,7 +16,7 @@ const UserForm = ({ userToEdit, onUserSaved, onCancel }) => {
       setFormData({
         username: userToEdit.username || '',
         email: userToEdit.email || '',
-        password: '' // Ne pas pré-remplir le mot de passe
+        password: ''
       });
     } else {
       setFormData({ username: '', email: '', password: '' });
@@ -37,14 +37,12 @@ const UserForm = ({ userToEdit, onUserSaved, onCancel }) => {
 
     try {
       if (userToEdit) {
-        // Mise à jour
         const updateData = { ...formData };
         if (!updateData.password) {
-          delete updateData.password; // Ne pas envoyer de mot de passe vide
+          delete updateData.password;
         }
         await userService.updateUser(userToEdit.id, updateData);
       } else {
-        // Création
         await userService.createUser(formData);
       }
       setFormData({ username: '', email: '', password: '' });

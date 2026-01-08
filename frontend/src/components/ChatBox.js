@@ -14,7 +14,6 @@ const ChatBox = ({ currentUser, selectedUser }) => {
   useEffect(() => {
     if (currentUser && selectedUser) {
       loadMessages();
-      // Rafraîchir les messages toutes les 3 secondes
       const interval = setInterval(loadMessages, 3000);
       return () => clearInterval(interval);
     }
